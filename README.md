@@ -18,7 +18,7 @@ Navigate to the directory containing requirements.txt (included in the repo).
 cd [location where the repo is saved]/cugos_streamlit
 ```
 
-* Create the Conda environment needed to run the notebooks. Note: it is called `geopandasenv`. **This could take anywhere from 10-30 minutes to finish.**
+* Install requirements.
 
 ```bash
 conda install --file requirements.txt
