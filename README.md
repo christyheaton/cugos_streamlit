@@ -18,10 +18,18 @@ Navigate to the directory containing requirements.txt (included in the repo).
 cd [location where the repo is saved]/cugos_streamlit
 ```
 
-* Install requirements.
+* Create environment.
 
 ```bash
-conda install --file requirements.txt
+conda create --name streamlitenv
+conda activate streamlitenv
+```
+* Install packages.
+
+```bash
+conda install streamlitenv
+conda install pandas
+conda install altair
 ```
 
 * Run the dashboard
