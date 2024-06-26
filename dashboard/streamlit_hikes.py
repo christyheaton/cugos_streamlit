@@ -10,26 +10,22 @@ def main():
     st.subheader("Filters")
 
     min_dist = int(hikes_df["DISTANCE"].min())
-    dist_slider = st.slider("Distance:", min_dist, 30, (min_dist, 30))
+    max_dist = 30
+    dist_slider = st.slider("Distance:", min_dist, max_dist, (min_dist, max_dist))
 
     min_elev = int(hikes_df["GAIN"].min())
-    elev_slider = st.slider("Elevation Gain:", min_elev, 4500, (min_elev, 4500))
+    max_elev = 4500
+    elev_slider = st.slider("Elevation Gain:", min_elev, max_elev, (min_elev, max_elev))
 
     region = st.selectbox("Region:", ["All"] + hikes_df["REGION"].tolist())
 
     # Filtered data
-    if region == "All":
-        filtered_df = hikes_df[(hikes_df["DISTANCE"] >= dist_slider[0]) &
-                               (hikes_df["DISTANCE"] <= dist_slider[1]) &
-                               (hikes_df["GAIN"] >= elev_slider[0]) &
-                               (hikes_df["GAIN"] <= elev_slider[1])]
-
-    else:
-        filtered_df = hikes_df[(hikes_df["REGION"] == region) &
-                               (hikes_df["DISTANCE"] >= dist_slider[0]) &
-                               (hikes_df["DISTANCE"] <= dist_slider[1]) &
-                               (hikes_df["GAIN"] >= elev_slider[0]) &
-                               (hikes_df["GAIN"] <= elev_slider[1])]
+    filtered_df = hikes_df[(hikes_df["DISTANCE"] >= dist_slider[0]) &
+                           (hikes_df["DISTANCE"] <= dist_slider[1]) &
+                           (hikes_df["GAIN"] >= elev_slider[0]) &
+                           (hikes_df["GAIN"] <= elev_slider[1])]
+    if region != "All":
+        filtered_df = filtered_df[(filtered_df["REGION"] == region)]
 
     st.subheader("Hike Table")
     st.dataframe(filtered_df)
@@ -43,7 +39,6 @@ def main():
     filtered_df["rounded_rating"] = filtered_df["RATING"].round()
     rating_counts = filtered_df["rounded_rating"].value_counts().reset_index()
     rating_counts.columns = ["rating", "count"]
-    rating_counts["rating"] = rating_counts["rating"].astype(int)
 
     st.subheader("Hike Ratings")
 
@@ -55,6 +50,7 @@ def main():
     average_rating = filtered_df['RATING'].mean()
     st.text(f"Average rating: {average_rating}")
 
+    # Random hike selector
     if not filtered_df.empty:
         if st.button("Select Random Hike"):
             random_row = filtered_df.sample()
