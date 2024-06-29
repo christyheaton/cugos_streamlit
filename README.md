@@ -21,7 +21,7 @@ cd [location where the repo is saved]/cugos_streamlit
 * Create environment.
 
 ```bash
-conda create --name streamlitenv
+conda create --name streamlit
 conda activate streamlitenv
 ```
 * Install packages.
