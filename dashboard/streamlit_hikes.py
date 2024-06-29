@@ -4,8 +4,8 @@ import altair as alt
 
 
 def main():
-    hikes_df = pd.read_csv("../data/2021-04-25_wta_hike_data_clean.csv")
     st.title("Washington Hikes")
+    hikes_df = pd.read_csv("../data/2021-04-25_wta_hike_data_clean.csv")
 
     st.subheader("Filters")
 
