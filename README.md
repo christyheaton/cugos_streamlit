@@ -4,6 +4,8 @@
 
 * [Washington State Hikes](https://github.com/yoshiohasegawa/wta-scraper)
 
+### To view the deployed app, click [here](https://christyheaton-cugos-streamlit-streamlit-hikes-xdeqzx.streamlit.app/).
+
 ### To run the dashboard locally
 
 * If you are familiar with [GitHub](http://www.github.com), fork (if you wish) and clone this repository. If not, download the repository and unzip to a working directory. Take note of where you put it!
