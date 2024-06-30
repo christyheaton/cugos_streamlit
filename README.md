@@ -32,11 +32,6 @@ conda install pandas
 conda install altair
 ```
 
-* Navigate to the dashboard directory
-```bash
-cd dashboard
-```
-
 * Run the dashboard
 ```bash
 streamlit run streamlit_hikes.py
